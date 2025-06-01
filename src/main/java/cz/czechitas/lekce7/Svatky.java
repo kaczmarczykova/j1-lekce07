@@ -3,6 +3,7 @@ package cz.czechitas.lekce7;
 import java.time.Month;
 import java.time.MonthDay;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -59,8 +60,7 @@ public class Svatky {
      * @return Den a měsíc, případně {@code null}, pokud jméno nebylo nalezeno.
      */
     public MonthDay vratKdyMaSvatek(String jmeno) {
-        //TODO
-        return null;
+        return svatky.get(jmeno);
     }
 
     /**
@@ -70,8 +70,7 @@ public class Svatky {
      * @return {@code true}, pokud je jméno v seznamu. Jinak vrací {@code false}.
      */
     public boolean jeVSeznamu(String jmeno) {
-        //TODO
-        return false;
+        return svatky.containsKey(jmeno);
     }
 
     /**
@@ -80,8 +79,7 @@ public class Svatky {
      * @return
      */
     public int getPocetJmen() {
-        //TODO
-        return 0;
+        return svatky.size();
     }
 
     /**
@@ -90,8 +88,7 @@ public class Svatky {
      * @return Neseřazený seznam jmen.
      */
     public Set<String> getSeznamJmen() {
-        //TODO
-        return null;
+        return svatky.keySet();
     }
 
     /**
@@ -101,7 +98,7 @@ public class Svatky {
      * @param denMesic Den a měsíc, kdy má dané jméno svátek.
      */
     public void pridejSvatek(String jmeno, MonthDay denMesic) {
-        //TODO
+        svatky.put(jmeno, denMesic);
     }
 
     /**
@@ -112,7 +109,7 @@ public class Svatky {
      * @param mesic Měsíc, kdy má dané jméno svátek (1–12).
      */
     public void pridejSvatek(String jmeno, int den, int mesic) {
-        //TODO
+        svatky.put(jmeno, MonthDay.of(mesic, den));
     }
 
     /**
@@ -123,7 +120,8 @@ public class Svatky {
      * @param mesic Měsíc, kdy má dané jméno svátek.
      */
     public void pridejSvatek(String jmeno, int den, Month mesic) {
-        //TODO
+        MonthDay datum = MonthDay.of(mesic, den);
+        svatky.put(jmeno, datum);
     }
 
     /**
@@ -132,6 +130,6 @@ public class Svatky {
      * @param jmeno Jméno ke smazání.
      */
     public void smazSvatek(String jmeno) {
-        //TODO
+        svatky.remove(jmeno);
     }
 }

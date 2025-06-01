@@ -93,7 +93,7 @@ class SvatkyTest {
      * Testuje metodu {@link Svatky#pridejSvatek(String, MonthDay)}
      */
     @Test
-    void prridatSvatekMonthDay() {
+    void pridatSvatekMonthDay() {
         Svatky svatky = new Svatky();
         MonthDay datum = MonthDay.of(Month.APRIL, 10);
         svatky.pridejSvatek("Iveta", datum);
